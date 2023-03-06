@@ -1,16 +1,24 @@
+from scipy import io
 import numpy as np
 import pandas as pd
-import scipy
-
-# Load the .mat file with squeeze_me and struct_as_record options
-mat_data = scipy.io.loadmat('AIRS_40KM_2022/20220125_AIRS_3DST-1_40km_grid.mat')
-mat_data_info = scipy.io.whosmat('AIRS_40KM_2022/20220125_AIRS_3DST-1_40km_grid.mat')
-
 
 class matlab_reader():
+    '''
+    # Example 
+
+    matlab = matlab_reader('AIRS_40KM_2022/20220125_AIRS_3DST-1_40km_grid.mat')
+
+    temp_data = matlab.select(
+        hemisphere= 'nh',
+        data_field='tp',
+        daytime='night',
+        altitude=24)      
+    '''
     def __init__(self,file):
         self.file_path = file
-        self.data = scipy.io.loadmat(file)
+        self.data = io.loadmat(file)
+        self.data_info = io.whosmat(file)
+
         self.data_airs = self.data['Airs']
 
         # to get night values use mat_data['Airs']['NH'][x][x][x][x][1][x][x][x]
@@ -71,13 +79,4 @@ class matlab_reader():
 
         print(np.shape(new_data))
         return new_data
-
-# Example 
-
-matlab = matlab_reader('AIRS_40KM_2022/20220125_AIRS_3DST-1_40km_grid.mat')
-
-matlab.select(
-    hemisphere= 'sh',
-    data_field='bg',
-    daytime='day',
-    altitude=24)      
+    
