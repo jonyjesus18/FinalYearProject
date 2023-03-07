@@ -26,4 +26,20 @@ class map_grid():
             a = self.nh_stacked
         a = np.where((a[...,0] > min_lat) & (a[...,0] < max_lat) & (a[...,1] > min_lon) & (a[...,1] < max_lon) )
         return np.transpose(a)
+
+class dataset():
+    def __init__(self,data):
+        ''' Data class : holds an array of data of shape 501x501'''
+        self.data = data
+        self.mean = np.nanmean(data)
+        self.max = np.nanmax(data)
+        self.min = np.nanmin(data)
     
+
+class data_wizard():
+    '''Colletion of functions to simplify filtering and agreggating geospatial matlab data'''
+    def data_filtering(self,select_area_indexer,data):
+        temp_data_select = data[select_area_indexer[:,0], select_area_indexer[:,1]]
+        mask = np.full((501, 501), np.nan)
+        mask[select_area_indexer[:,0], select_area_indexer[:,1]] = temp_data_select
+        return mask

@@ -24,13 +24,13 @@ class matlab_reader():
         # to get night values use mat_data['Airs']['NH'][x][x][x][x][1][x][x][x]
         # to get day values use   mat_data['Airs']['NH'][x][x][x][x][0][x][x][x]
 
-        # to get tp values use mat_data['Airs']['NH'][x][x][x][x][x][x][x][0]
-        # to get bg values use mat_data['Airs']['NH'][x][x][x][x][x][x][x][1]
-        # to get A  values use mat_data['Airs']['NH'][x][x][x][x][x][x][x][2]
-        # to get ha values use mat_data['Airs']['NH'][x][x][x][x][x][x][x][3]
-        # to get k  values use mat_data['Airs']['NH'][x][x][x][x][x][x][x][4]
-        # to get l  values use mat_data['Airs']['NH'][x][x][x][x][x][x][x][5]
-        # to get m  values use mat_data['Airs']['NH'][x][x][x][x][x][x][x][6]
+        # to get tp values use mat_data['Airs']['NH'][x][x][x][x][x][x][x][0] tempere perturbatio
+        # to get bg values use mat_data['Airs']['NH'][x][x][x][x][x][x][x][1] backgorund temperatue tb + bg = t (use bg and tp)
+        # to get A  values use mat_data['Airs']['NH'][x][x][x][x][x][x][x][2] wave amplite
+        # to get ha values use mat_data['Airs']['NH'][x][x][x][x][x][x][x][3] ignore
+        # to get k  values use mat_data['Airs']['NH'][x][x][x][x][x][x][x][4] temperature same as l and m in eastward direction
+        # to get l  values use mat_data['Airs']['NH'][x][x][x][x][x][x][x][5] wave length in NS tidection 1/l is the wave length in NH direction
+        # to get m  values use mat_data['Airs']['NH'][x][x][x][x][x][x][x][6] vertical wave 1/m wave length in vertical dirdction
         # to get mfx values use mat_data['Airs']['NH'][x][x][x][x][x][x][x][7]
         # to get mfy values use mat_data['Airs']['NH'][x][x][x][x][x][x][x][8]
 
@@ -79,4 +79,3 @@ class matlab_reader():
 
         print(np.shape(new_data))
         return new_data
-    
