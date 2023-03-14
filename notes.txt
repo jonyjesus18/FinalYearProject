@@ -1,0 +1,16 @@
+# [Airs.X,Airs.Y] = ndgrid(Airs.x,Airs.y); 
+# [Airs.NH.Lat,Airs.NH.Lon] = reckon( 89.999,0,km2deg(sqrt(Airs.x.^2 + Airs.y.^2)),atan2d(Airs.x,Airs.y)); 
+# [Airs.SH.Lat,Airs.SH.Lon] = reckon(-89.999,0,km2deg(sqrt(Airs.x.^2 + Airs.y.^2)),atan2d(Airs.x,Airs.y)); 
+# csvwrite('Airs_nh_lat_125_grid.csv',Airs.NH.Lat)
+# csvwrite('Airs_nh_lon_125_grid.csv',Airs.NH.Lon)
+# csvwrite('Airs_sh_lat_125_grid.csv',Airs.SH.Lat)
+# csvwrite('Airs_sh_lon_125_grid.csv',Airs.SH.Lon)
+
+
+# [Airs.X,Airs.Y] = ndgrid(Airs.x,Airs.y); 
+# [Airs.NH.Lat,Airs.NH.Lon] = reckon( 89.999,0,km2deg(sqrt(Airs.X.^2 + Airs.Y.^2)),atan2d(Airs.X,Airs.Y)); 
+# [Airs.SH.Lat,Airs.SH.Lon] = reckon(-89.999,0,km2deg(sqrt(Airs.X.^2 + Airs.Y.^2)),atan2d(Airs.X,Airs.Y)); 
+# csvwrite('Airs_nh_lat_125_grid.csv',Airs.NH.Lat)
+# csvwrite('Airs_nh_lon_125_grid.csv',Airs.NH.Lon)
+# csvwrite('Airs_sh_lat_125_grid.csv',Airs.SH.Lat)
+# csvwrite('Airs_sh_lon_125_grid.csv',Airs.SH.Lon)
