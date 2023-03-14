@@ -40,23 +40,25 @@ class matlab_reader():
         # new_data[2] gives the temperature matrix 501x501 for altitude at lowest level 36
         # new_data[3] gives the temperature matrix 501x501 for altitude at lowest level 42
         # new_data[4] gives the temperature matrix 501x501 for altitude at lowest level 48
+
+
+        # [0] - > 30 ,[1] -> 36 ,[2] ->  42 for 125 grid
         
         self.mappings = {"day" : 0,
                         "night": 1,
-                        "tp" : 0,
-                        "bg" : 1,
-                        "a" : 2,
-                        "ha" : 3,
-                        "k" : 4,
-                        "l" : 5,
-                        "m" : 6,
-                        "mfx" : 7,
-                        "mfy" : 8,
-                        24 : 0,
-                        30 : 1,
-                        36 : 2,
-                        42 : 3,
-                        48 : 4}
+                        "a" : 0,
+                        "ha" : 1,
+                        "bg" : 2,
+                        "k" : 3,
+                        "l" : 4,
+                        "m" : 5,
+                        "mfx" : 6,
+                        "mfy" : 7,
+                        0 : 0,
+                        1 : 1,
+                        2 : 2,
+                        3 : 3,
+                        4 : 4}
     def select(self,
         hemisphere = 'NH',
         daytime = 'Night',
@@ -77,5 +79,4 @@ class matlab_reader():
         if altitude is not None:
             new_data = new_data[self.mappings[altitude]]
 
-        print(np.shape(new_data))
         return new_data
