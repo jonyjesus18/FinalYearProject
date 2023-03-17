@@ -1,9 +1,11 @@
-%matplotlib inline
-import numpy as np
+# %matplotlib inline
+
+from classes.grid_funcs import map_grid
 import matplotlib.pyplot as plt
 from mpl_toolkits.basemap import Basemap
 
 fig = plt.figure(figsize=(10, 8))
+grid = map_grid(grid_size=125)
 
 m = Basemap(projection='stere', resolution='c',
             width=8E6, height=8E6, 
